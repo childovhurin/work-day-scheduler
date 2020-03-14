@@ -1,43 +1,84 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <!--BOOTSTRAP-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <!--CSS-->
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WORK DAY SCHEDULER</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--TITLE-->
+    <title>Work Day Scheduler</title>
 </head>
-<body class="bg-dark">
-    <!--NAVBAR-->
-    <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top shadow">
-        <div class="w-100 order-0">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <!-- TIME -->
-                    <h5 id="time" class="text-light" ></h5>
-                </li>
-            </ul>
+
+<body>
+    <header class="jumbotron">
+        <h1 class="display-3">Work Day Scheduler</h1>
+        <p class="lead">A simple calendar app for scheduling your work day</p>
+        <p id="currentDay" class="lead"></p>
+    </header>
+    <!--TIME & EVENT HEADERS-->
+    <div class="container">
+        <div class="row">
+            <div class="col-2" id="column">Time</div>
+            <div class="col-8">Notes & Events</div>
+            <div class="col-2" id="add-event-buttons"></div>
         </div>
-        <div class="mx-auto order-0">
-            <a class="navbar-brand mx-auto " href="#">WORK DAY SCHEDULER</a>
-           
+    <!--TIME AND EVENT COLUMNS-->
+        <div class="row" data-value='9' id='9'>
+            <div class="col-2" id="hour">9:00</div>
+            <div class="col-8"><input type='text' id='9am' data-value='9' class='saved-events'></div>
+            <div class="col-2" id="add-event-buttons"><button class="saveBtn" data-value='#9am'>Save</button></div>
         </div>
-        <div class="navbar w-100 order-3 float-left">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <!--DATE-->
-                    <h5 id="date"class="text-light" ></h5>
-                </li>   
-            </ul>
+        <div class="row" data-value='10' id='10'>
+            <div class="col-2" id="hour">10:00</div>
+            <div class="col-8"><input type='text' id='10am' data-value='10' class='saved-events'></div>
+            <div class="col-2" id="add-event-buttons"><button class="saveBtn" data-value='#10am'>Save</button></div>
         </div>
-    </nav>
- <div class="container">
-    <!-- vvv Everything Gets Stuffed in here vvv -->
-    <div id="content"></div>
-</div>
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="script.js"></script>
+        <div class="row" id='11'>
+            <div class="col-2" id="hour">11:00</div>
+            <div class="col-8"><input type='text' id='11am' data-value='11am' class='saved-events'></div>
+            <div class="col-2" id="add-event-buttons"><button class="saveBtn" data-value='#11am'>Save</button></div>
+        </div>
+        <div class="row" data-value='12' id='12'>
+            <div class="col-2" id="hour">12:00</div>
+            <div class="col-8"><input type='text' id='12pm' data-value='12' class='saved-events'></div>
+            <div class="col-2" id="add-event-buttons"><button class="saveBtn" data-value='#12pm'>Save</button></div>
+        </div>
+        <!--AFTERNOON TIMES-->
+        <div class="row" data-value='13' id='13'>
+            <div class="col-2" id="hour">1:00</div>
+            <div class="col-8"><input type='text' id='1pm' data-value='13' class='saved-events'></div>
+            <div class="col-2" id="add-event-buttons"><button class="saveBtn" data-value='#1pm'>Save</button></div>
+        </div>
+        <div class="row" data-value='14' id='14'>
+            <div class="col-2" id="hour">2:00</div>
+            <div class="col-8"><input type='text' id='2pm' data-value='14' class='saved-events'></div>
+            <div class="col-2" id="add-event-buttons"><button class="saveBtn" data-value='#2pm'>Save</button></div>
+        </div>
+        <div class="row" data-value='15' id='15'>
+            <div class="col-2" id="hour">3:00</div>
+            <div class="col-8"><input type='text' id='3pm' data-value='15' class='saved-events'></div>
+            <div class="col-2" id="add-event-buttons"><button class="saveBtn" data-value='#3pm'>Save</button></div>
+        </div>
+        <div class="row" data-value='16' id='16'>
+            <div class="col-2" id="hour">4:00</div>
+            <div class="col-8"><input type='text' id='4pm' data-value='16' class='saved-events'></div>
+            <div class="col-2" id="add-event-buttons"><button class="saveBtn" data-value='#4pm'>Save</button></div>
+        </div>
+        <div class="row" data-value='17' id='17'>
+            <div class="col-2" id="hour">5:00</div>
+            <div class="col-8"><input type='text' id='5pm' data-value='17' class='saved-events'></div>
+            <div class="col-2" id="add-event-buttons"><button class="saveBtn" data-value='#5pm'>Save</button></div>
+        </div>
+    </div>
+    
+    <!--SCRIPTS-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/script.js"></script>
 </body>
+
+</html>
